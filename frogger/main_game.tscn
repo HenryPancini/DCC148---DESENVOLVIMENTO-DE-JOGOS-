@@ -1,0 +1,143 @@
+[gd_scene format=3 uid="uid://dr3fuad3404wx"]
+
+[ext_resource type="Script" uid="uid://cukbl7kn3nbi" path="res://main_game.gd" id="1_4srsv"]
+[ext_resource type="PackedScene" uid="uid://1iyikg70qqfr" path="res://background.tscn" id="1_yx7mw"]
+[ext_resource type="PackedScene" uid="uid://di5r3pj8us12h" path="res://frog.tscn" id="2_ykeeq"]
+[ext_resource type="TileSet" uid="uid://ba48dvwhqsubd" path="res://new_tile_set.tres" id="3_krmtw"]
+[ext_resource type="Script" uid="uid://cvtcrkfsasmqp" path="res://ObjectPool.gd" id="3_l5ukw"]
+[ext_resource type="PackedScene" uid="uid://dtapujmre2oii" path="res://car.tscn" id="3_ykeeq"]
+[ext_resource type="PackedScene" uid="uid://bdp4ssy2j505v" path="res://excavator.tscn" id="4_6bm6p"]
+[ext_resource type="PackedScene" uid="uid://clhhqtqr2ymt4" path="res://car_2.tscn" id="5_dugkq"]
+[ext_resource type="Texture2D" uid="uid://dp6xhmrt7d71p" path="res://Frogger sprites/sapos/sapoverde.png" id="5_wt57k"]
+[ext_resource type="PackedScene" uid="uid://b1j0m84ylh30l" path="res://car_3.tscn" id="6_2pltu"]
+[ext_resource type="Texture2D" uid="uid://clsio2a6mdxpm" path="res://Frogger sprites/sapos/sapovermelho.png" id="6_pk5u2"]
+[ext_resource type="PackedScene" uid="uid://1msx1x2f0qy4" path="res://truck.tscn" id="7_f52ns"]
+[ext_resource type="Texture2D" uid="uid://c22fhn65055vg" path="res://Frogger sprites/sapos/sapolaranja.png" id="7_lght5"]
+[ext_resource type="PackedScene" uid="uid://cfybckvkve502" path="res://log_1.tscn" id="8_l5ukw"]
+[ext_resource type="Texture2D" uid="uid://ba6e12ip5vvx7" path="res://Frogger sprites/sapos/sapoazul.png" id="8_lfj8l"]
+[ext_resource type="PackedScene" uid="uid://cu3l6f677reua" path="res://log_2.tscn" id="9_4srsv"]
+[ext_resource type="Texture2D" uid="uid://csnwx7cmdyduu" path="res://Frogger sprites/sapos/sapoamarelo.png" id="9_ac0cv"]
+[ext_resource type="Texture2D" uid="uid://buhoyo3p7tobv" path="res://sapos finais/verde.png" id="10_6krrg"]
+[ext_resource type="PackedScene" uid="uid://b1l1l0djdjst3" path="res://log_3.tscn" id="10_mf81u"]
+[ext_resource type="Texture2D" uid="uid://tvsuojsiqr6s" path="res://sapos finais/vermelho.png" id="11_8slmw"]
+[ext_resource type="Texture2D" uid="uid://bmvu57lruaaqk" path="res://sapos finais/laranja.png" id="12_u7wvl"]
+[ext_resource type="Texture2D" uid="uid://hhdehn3sd8cq" path="res://sapos finais/azul.png" id="13_onx7j"]
+[ext_resource type="Texture2D" uid="uid://qtftx1hu5725" path="res://sapos finais/amarelo.png" id="14_o8ab5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wt57k"]
+size = Vector2(224, 72)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kwwsi"]
+size = Vector2(32, 12)
+
+[node name="MainGame" type="Node" unique_id=1286472868 node_paths=PackedStringArray("tilemap")]
+script = ExtResource("1_4srsv")
+tilemap = NodePath("Background")
+
+[node name="Background" parent="." unique_id=967089571 instance=ExtResource("1_yx7mw")]
+position = Vector2(112, 112)
+tile_set = ExtResource("3_krmtw")
+
+[node name="Frog" parent="." unique_id=1503375812 node_paths=PackedStringArray("tilemap", "water", "victory_areas") instance=ExtResource("2_ykeeq")]
+z_index = 5
+position = Vector2(104, 248)
+tilemap = NodePath("../Background")
+life = 10
+water = NodePath("../Area2D")
+sprite_vector1 = Array[Texture2D]([ExtResource("6_pk5u2"), ExtResource("7_lght5"), ExtResource("8_lfj8l"), ExtResource("9_ac0cv"), ExtResource("5_wt57k")])
+sprite_vector2 = Array[Texture2D]([ExtResource("10_6krrg"), ExtResource("11_8slmw"), ExtResource("12_u7wvl"), ExtResource("13_onx7j"), ExtResource("14_o8ab5")])
+victory_areas = [NodePath("../Area2D2"), NodePath("../Area2D3"), NodePath("../Area2D4"), NodePath("../Area2D5"), NodePath("../Area2D6")]
+
+[node name="CarPool" type="Node" parent="." unique_id=1483698195]
+script = ExtResource("3_l5ukw")
+object_scene = ExtResource("3_ykeeq")
+
+[node name="CarPool2" type="Node" parent="." unique_id=1189650774]
+script = ExtResource("3_l5ukw")
+object_scene = ExtResource("4_6bm6p")
+
+[node name="CarPool3" type="Node" parent="." unique_id=999052899]
+script = ExtResource("3_l5ukw")
+object_scene = ExtResource("5_dugkq")
+
+[node name="CarPool4" type="Node" parent="." unique_id=62044168]
+script = ExtResource("3_l5ukw")
+object_scene = ExtResource("6_2pltu")
+
+[node name="CarPool5" type="Node" parent="." unique_id=749091647]
+script = ExtResource("3_l5ukw")
+object_scene = ExtResource("7_f52ns")
+
+[node name="LogPool" type="Node" parent="." unique_id=1022619392]
+script = ExtResource("3_l5ukw")
+object_scene = ExtResource("8_l5ukw")
+metadata/_custom_type_script = "uid://cvtcrkfsasmqp"
+
+[node name="LogPool2" type="Node" parent="." unique_id=1717870257]
+script = ExtResource("3_l5ukw")
+object_scene = ExtResource("9_4srsv")
+metadata/_custom_type_script = "uid://cvtcrkfsasmqp"
+
+[node name="LogPool3" type="Node" parent="." unique_id=1845786752]
+script = ExtResource("3_l5ukw")
+object_scene = ExtResource("10_mf81u")
+metadata/_custom_type_script = "uid://cvtcrkfsasmqp"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=66504904]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1616805266]
+position = Vector2(112, 105)
+shape = SubResource("RectangleShape2D_wt57k")
+debug_color = Color(0.93333334, 0.6, 0.69803923, 0.41960785)
+
+[node name="Area2D2" type="Area2D" parent="." unique_id=2119192835]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=901816670]
+position = Vector2(16, 53)
+shape = SubResource("RectangleShape2D_kwwsi")
+debug_color = Color(0.93333334, 0.6, 0.69803923, 0.41960785)
+
+[node name="Area2D3" type="Area2D" parent="." unique_id=1074198942]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3" unique_id=571314386]
+position = Vector2(65, 53)
+shape = SubResource("RectangleShape2D_kwwsi")
+debug_color = Color(0.93333334, 0.6, 0.69803923, 0.41960785)
+
+[node name="Area2D4" type="Area2D" parent="." unique_id=94071536]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D4" unique_id=753160305]
+position = Vector2(209, 54)
+shape = SubResource("RectangleShape2D_kwwsi")
+debug_color = Color(0.93333334, 0.6, 0.69803923, 0.41960785)
+
+[node name="Area2D5" type="Area2D" parent="." unique_id=1560438065]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D5" unique_id=2058388783]
+position = Vector2(112, 54)
+shape = SubResource("RectangleShape2D_kwwsi")
+debug_color = Color(0.93333334, 0.6, 0.69803923, 0.41960785)
+
+[node name="Area2D6" type="Area2D" parent="." unique_id=1195679592]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D6" unique_id=2120485585]
+position = Vector2(160, 54)
+shape = SubResource("RectangleShape2D_kwwsi")
+debug_color = Color(0.93333334, 0.6, 0.69803923, 0.41960785)
+
+[node name="Label" type="Label" parent="." unique_id=369142455]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -112.0
+offset_right = 112.0
+offset_bottom = 49.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 0.03137255, 1)
+theme_override_colors/font_shadow_color = Color(0.43529412, 0, 1, 1)
+theme_override_colors/font_outline_color = Color(0.8, 1, 0, 1)
+theme_override_font_sizes/font_size = 12
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cfybckvkve502"]
+
+[ext_resource type="Texture2D" uid="uid://c1fh3ba70i0k" path="res://Frogger sprites/objetos da água/tronco32x16.png" id="1_4g3g7"]
+[ext_resource type="Script" uid="uid://cmvywgaispvgl" path="res://logs.gd" id="1_o4u51"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kwwsi"]
+size = Vector2(31, 15)
+
+[node name="Log1" type="Area2D" unique_id=1169081285 groups=["logs"]]
+script = ExtResource("1_o4u51")
+speed = 0.9
+isleft = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=425623391]
+texture = ExtResource("1_4g3g7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1852508319]
+shape = SubResource("RectangleShape2D_kwwsi")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

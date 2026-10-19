@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://lifrvw5w36l0"]
+
+[ext_resource type="Script" uid="uid://b1w65q0samw1t" path="res://turtle.gd" id="1_2ssyi"]
+[ext_resource type="Texture2D" uid="uid://bjlrxgx3pv5if" path="res://Frogger sprites/tartaruga3-sheet.png" id="1_c7qbt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ssyi"]
+atlas = ExtResource("1_c7qbt")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w1etq"]
+atlas = ExtResource("1_c7qbt")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ghgcf"]
+atlas = ExtResource("1_c7qbt")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hlk0a"]
+atlas = ExtResource("1_c7qbt")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e1omo"]
+atlas = ExtResource("1_c7qbt")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p4wnx"]
+atlas = ExtResource("1_c7qbt")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uxseb"]
+atlas = ExtResource("1_c7qbt")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8i16d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ssyi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w1etq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ghgcf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hlk0a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e1omo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p4wnx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uxseb")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 4.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kwwsi"]
+size = Vector2(16, 16)
+
+[node name="Turtle" type="CharacterBody2D" unique_id=1138826257]
+script = ExtResource("1_2ssyi")
+speed = 0.5
+isleft = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2038818538]
+sprite_frames = SubResource("SpriteFrames_8i16d")
+frame_progress = 0.86341304
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=374242037]
+shape = SubResource("RectangleShape2D_kwwsi")

@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bdp4ssy2j505v"]
+
+[ext_resource type="Script" uid="uid://b4mchcor3kcg7" path="res://car.gd" id="1_no220"]
+[ext_resource type="Texture2D" uid="uid://mpcdfncjsovf" path="res://Frogger sprites/carros/escavadeira.png" id="1_pk3bg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kwwsi"]
+size = Vector2(16, 16)
+
+[node name="Excavator" type="Area2D" unique_id=1480169826 groups=["cars"]]
+script = ExtResource("1_no220")
+speed = 0.8
+isleft = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=994768556]
+texture = ExtResource("1_pk3bg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1815205214]
+shape = SubResource("RectangleShape2D_kwwsi")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

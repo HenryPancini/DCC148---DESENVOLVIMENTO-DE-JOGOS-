@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://di5r3pj8us12h"]
+
+[ext_resource type="Script" uid="uid://cesobd35ln76a" path="res://frog.gd" id="1_6ekd3"]
+[ext_resource type="Texture2D" uid="uid://dp6xhmrt7d71p" path="res://Frogger sprites/sapos/sapoverde.png" id="1_whe2r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kwwsi"]
+size = Vector2(15, 15)
+
+[node name="Frog" type="CharacterBody2D" unique_id=1503375812 groups=["player"]]
+script = ExtResource("1_6ekd3")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=244757159]
+texture = ExtResource("1_whe2r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=210459952]
+z_index = 5
+shape = SubResource("RectangleShape2D_kwwsi")

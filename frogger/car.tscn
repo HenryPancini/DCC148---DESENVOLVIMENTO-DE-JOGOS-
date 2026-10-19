@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dtapujmre2oii"]
+
+[ext_resource type="Texture2D" uid="uid://0mc285ud0cml" path="res://Frogger sprites/carros/carro1.png" id="1_7822p"]
+[ext_resource type="Script" uid="uid://b4mchcor3kcg7" path="res://car.gd" id="1_uoj53"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kwwsi"]
+size = Vector2(16, 16)
+
+[node name="Car1" type="Area2D" unique_id=1468440364 groups=["cars"]]
+script = ExtResource("1_uoj53")
+speed = 0.9
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=994768556]
+texture = ExtResource("1_7822p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1815205214]
+shape = SubResource("RectangleShape2D_kwwsi")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

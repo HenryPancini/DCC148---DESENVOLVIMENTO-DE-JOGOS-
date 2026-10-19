@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://b1j0m84ylh30l"]
+
+[ext_resource type="Script" uid="uid://b4mchcor3kcg7" path="res://car.gd" id="1_n28fw"]
+[ext_resource type="Texture2D" uid="uid://ca00rpcu4k8i7" path="res://carro3.png" id="2_n28fw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kwwsi"]
+size = Vector2(16, 16)
+
+[node name="Car3" type="Area2D" unique_id=1677337233 groups=["cars"]]
+script = ExtResource("1_n28fw")
+speed = 0.5
+isleft = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=994768556]
+rotation = -3.1415925
+texture = ExtResource("2_n28fw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1815205214]
+shape = SubResource("RectangleShape2D_kwwsi")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
